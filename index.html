@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lolimori Maid Café — Menú</title>
+  <meta name="description" content="Menú digital de Lolimori Maid Café: comiditas, postrecitos, tecitos, cajuecitos, frappes y bebidas frías." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fff7fb;
+      --card:#ffffff;
+      --ink:#2f2a2e;
+      --muted:#6a5f67;
+      --pink:#ff6fb0;
+      --lav:#b48cff;
+      --mint:#34d3c2;
+      --line:#f0d7e6;
+      --shadow: 0 12px 30px rgba(36, 18, 28, .10);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 600px at 10% 10%, rgba(255,111,176,.18), transparent 60%),
+        radial-gradient(900px 600px at 90% 20%, rgba(180,140,255,.16), transparent 60%),
+        radial-gradient(900px 600px at 40% 90%, rgba(52,211,194,.10), transparent 60%),
+        var(--bg);
+    }
+
+    a{color:inherit}
+    .wrap{max-width:980px; margin:0 auto; padding:22px 16px 60px}
+    header{
+      background:rgba(255,255,255,.8);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px 18px 14px;
+      backdrop-filter: blur(8px);
+    }
+    .top{
+      display:flex; gap:14px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center;
+    }
+    .logo{
+      width:54px; height:54px;
+      border-radius:16px;
+      background: linear-gradient(135deg, rgba(255,111,176,.25), rgba(180,140,255,.25));
+      border:1px dashed rgba(255,111,176,.45);
+      display:grid; place-items:center;
+      font-size:22px;
+    }
+    h1{
+      margin:0;
+      font-family:"Pacifico", cursive;
+      font-weight:400;
+      letter-spacing:.3px;
+      font-size:30px;
+      line-height:1.1;
+    }
+    .subtitle{margin:2px 0 0; color:var(--muted); font-weight:600}
+    .chips{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+    .chip{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:var(--card);
+      text-decoration:none;
+      box-shadow: 0 6px 16px rgba(36, 18, 28, .06);
+      font-weight:800;
+    }
+    .chip:hover{transform: translateY(-1px)}
+    .chip .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--pink);
+      box-shadow: 0 0 0 4px rgba(255,111,176,.18);
+    }
+    .chip.mint .dot{background:var(--mint); box-shadow:0 0 0 4px rgba(52,211,194,.14)}
+    .chip.lav .dot{background:var(--lav); box-shadow:0 0 0 4px rgba(180,140,255,.14)}
+
+    .hero{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+    }
+    .hero .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .note{
+      margin:0;
+      color:var(--muted);
+      font-weight:700;
+      line-height:1.35;
+    }
+    .kawaii-box{
+      display:grid;
+      place-items:center;
+      min-height:120px;
+      text-align:center;
+      border-radius:var(--radius);
+      border:1px dashed rgba(180,140,255,.45);
+      background: linear-gradient(135deg, rgba(180,140,255,.12), rgba(255,111,176,.10));
+      padding:16px;
+    }
+    .kawaii-box .big{font-size:34px; margin:0}
+    .kawaii-box .small{margin:6px 0 0; color:var(--muted); font-weight:800}
+
+    nav{
+      margin-top:16px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    nav a{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.7);
+      font-weight:800;
+    }
+    nav a:hover{background:rgba(255,255,255,1)}
+
+    main{margin-top:18px}
+    .section{
+      margin-top:18px;
+      background:rgba(255,255,255,.85);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:.3px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .badge{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,111,176,.12);
+      border:1px solid rgba(255,111,176,.25);
+      color:#7c2b52;
+      font-weight:900;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:12px;
+    }
+    .item{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px 12px 10px;
+      box-shadow: 0 8px 22px rgba(36, 18, 28, .06);
+    }
+    .row{
+      display:flex; gap:10px; align-items:flex-start; justify-content:space-between;
+    }
+    .name{
+      font-weight:900;
+      margin:0;
+      font-size:15px;
+    }
+    .price{
+      font-weight:1000;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(180,140,255,.14);
+      border:1px solid rgba(180,140,255,.25);
+      white-space:nowrap;
+    }
+    .desc{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-weight:700;
+      line-height:1.35;
+      font-size:13px;
+    }
+
+    .list{
+      display:grid;
+      gap:10px;
+    }
+    .simple{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:10px 12px;
+      box-shadow: 0 8px 22px rgba(36, 18, 28, .06);
+    }
+    .simple .left{font-weight:900}
+    .simple .right{font-weight:1000; padding:6px 10px; border-radius:999px; background:rgba(52,211,194,.14); border:1px solid rgba(52,211,194,.24)}
+    .simple .sub{margin-top:4px; color:var(--muted); font-weight:700; font-size:13px; line-height:1.35}
+
+    footer{
+      margin-top:18px;
+      text-align:center;
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+    }
+    .cta{
+      display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:12px;
+    }
+    .btn{
+      text-decoration:none;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--card);
+      box-shadow:var(--shadow);
+      font-weight:1000;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(255,111,176,.18), rgba(180,140,255,.18));
+      border:1px solid rgba(255,111,176,.25);
+    }
+
+    @media (max-width: 780px){
+      .hero{grid-template-columns: 1fr}
+      .grid{grid-template-columns: 1fr}
+      h1{font-size:28px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="top">
+        <div class="brand">
+          <div class="logo">☕</div>
+          <div>
+            <h1>Lolimori</h1>
+            <p class="subtitle">Maid Café • Menú digital</p>
+          </div>
+        </div>
+
+        <div class="chips">
+          <a class="chip" href="#menu"><span class="dot"></span> Ver menú</a>
+          <a class="chip mint" href="https://wa.me/59165304324" target="_blank" rel="noopener">
+            <span class="dot"></span> WhatsApp
+          </a>
+          <a class="chip lav" href="#info"><span class="dot"></span> Info</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="card">
+          <p class="note">
+            Ammit@s de la creashion los queremos musho 💕<br/>
+            y agradecemos siempre su paciencia y buen humor, tenga wonito día ✨
+          </p>
+          <nav>
+            <a href="#comiditas">🍽️ Comiditas</a>
+            <a href="#postrecitos">🍰 Postrecitos</a>
+            <a href="#tecitos">🍵 Tecitos</a>
+            <a href="#cajuecitos">☕ Cajuecitos</a>
+            <a href="#frappecitos">🧋 Frappecitos</a>
+            <a href="#bebidasfrias">🥤 Bebidas frías</a>
+            <a href="#jugos">🧃 Jugos</a>
+            <a href="#extras">🎶 Extras</a>
+          </nav>
+        </div>
+
+        <div class="card kawaii-box">
+          <p class="big">૮ ˶ᵔ ᵕ ᵔ˶ ა</p>
+          <p class="small">¡Bienvenid@ a Lolimori!</p>
+          <p class="small" style="margin-top:2px;">Escanea QR • Mira el menú • Ordena en caja</p>
+        </div>
+      </div>
+    </header>
+
+    <main id="menu">
+      <!-- COMIDITAS -->
+      <section class="section" id="comiditas">
+        <h2>🍽️ Comiditas <span class="badge">hechitas con amor</span></h2>
+        <div class="grid">
+          <article class="item">
+            <div class="row">
+              <p class="name">Loli – Ramencito</p>
+              <div class="price">18 Bs</div>
+            </div>
+            <p class="desc">Sopita de fideos, carnecita de cerdito, webito, cebollita, maíz de latita, brote de alfalfa y zanahoria.</p>
+          </article>
+
+          <article class="item">
+            <div class="row">
+              <p class="name">Moe – Moe Curry</p>
+              <div class="price">18 Bs</div>
+            </div>
+            <p class="desc">Guiso picante con trocitos de pollo, zanahoria y papita. Acompañado de arrocito y perejil picado.</p>
+          </article>
+
+          <article class="item">
+            <div class="row">
+              <p class="name">Salteadito Muuuu</p>
+              <div class="price">19 Bs</div>
+            </div>
+            <p class="desc">Salteadito de carnita de res y verduritas, acompañado de arrocito.</p>
+          </article>
+
+          <article class="item">
+            <div class="row">
+              <p class="name">Yaki-Nya</p>
+              <div class="price">18 Bs</div>
+            </div>
+            <p class="desc">Yakisoba estilo LoliMori. Fideitos salteados con trocitos de pollo y verduritas picadas.</p>
+          </article>
+
+          <article class="item">
+            <div class="row">
+              <p class="name">Alfredo Kyun~</p>
+              <div class="price">19 Bs</div>
+            </div>
+            <p class="desc">Pasta mezclada con mantequilla, queso parmesano y trocitos de jamón.</p>
+          </article>
+
+          <article class="item">
+            <div class="row">
+              <p class="name">Omurice Love</p>
+              <div class="price">20 Bs</div>
+            </div>
+            <p class="desc">Tortilla de webito relleno de arroz salteadito junto a tocino y verduritas.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- POSTRECITOS -->
+      <section class="section" id="postrecitos">
+        <h2>🍰 Postrecitos <span class="badge">dulcecito</span></h2>
+        <div class="grid">
+          <article class="item">
+            <div class="row">
+              <p class="name">Deli – Mori</p>
+              <div class="price">10 Bs</div>
+            </div>
+            <p class="desc">Delisario postrecito de betabel, zanahoria y cubierta de chokoretto.</p>
+          </article>
+
+          <article class="item">
+            <div class="row">
+              <p class="name">Loli Taiyaki</p>
+              <div class="price">6 Bs</div>
+            </div>
+            <p class="desc">Masita dulce en forma de pescaditos, relleno de amors. Puedes añadir una porción de heladito (costo extra).</p>
+          </article>
+
+          <article class="item">
+            <div class="row">
+              <p class="name">Fresa – Mori</p>
+              <div class="price">20 Bs</div>
+            </div>
+            <p class="desc">Sandwichito de fresas y cremita pli.</p>
+          </article>
+
+          <article class="item">
+            <div class="row">
+              <p class="name">Rolli Chuu</p>
+              <div class="price">15 Bs</div>
+            </div>
+            <p class="desc">Rollito de canela y un toque de quesito crema, acompañado de una taza de tecito.</p>
+          </article>
+
+          <article class="item">
+            <div class="row">
+              <p class="name">Loli – Wafflestos</p>
+              <div class="price">15 Bs</div>
+            </div>
+            <p class="desc">Masitas dulces con trocitos de frutitas, cremita, chispitas y mielcita.</p>
+          </article>
+
+          <article class="item">
+            <div class="row">
+              <p class="name">Love – Cake</p>
+              <div class="price">6 Bs</div>
+            </div>
+            <p class="desc">Cupcake relleno de manjar o mermelada de fresitas.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- TECITOS -->
+      <section class="section" id="tecitos">
+        <h2>🍵 Tecitos <span class="badge">calientito</span></h2>
+        <div class="list">
+          <div class="simple">
+            <div>
+              <div class="left">Teshito Love</div>
+              <div class="sub">Manzanilla, anís, cedrón, manzana, durazno y piña.</div>
+            </div>
+            <div class="right">6 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Teshito Speshal</div>
+              <div class="sub">Tecito negro y lachita deslactosada.</div>
+            </div>
+            <div class="right">15 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Teshito Red</div>
+              <div class="sub">Una combinación de manzanita, cereza y hierbitas rojas.</div>
+            </div>
+            <div class="right">11 Bs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAJUECITOS -->
+      <section class="section" id="cajuecitos">
+        <h2>☕ Cajuecitos <span class="badge">cafecito</span></h2>
+        <div class="list">
+          <div class="simple">
+            <div>
+              <div class="left">Americano</div>
+              <div class="sub">Awita 50 % y café 50 %.</div>
+            </div>
+            <div class="right">6 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Espresso</div>
+              <div class="sub">Destilado de café solo.</div>
+            </div>
+            <div class="right">8 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Cappuccino</div>
+              <div class="sub">Café, leche y cremita.</div>
+            </div>
+            <div class="right">15 Bs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FRAPPECITOS -->
+      <section class="section" id="frappecitos">
+        <h2>🧋 Frappecitos <span class="badge">frío frío</span></h2>
+        <div class="grid">
+          <article class="item"><div class="row"><p class="name">Oreo</p><div class="price">20 Bs</div></div></article>
+          <article class="item"><div class="row"><p class="name">Cafeshito</p><div class="price">22 Bs</div></div></article>
+          <article class="item"><div class="row"><p class="name">Chokoretto</p><div class="price">20 Bs</div></div></article>
+          <article class="item"><div class="row"><p class="name">UwU</p><div class="price">22 Bs</div></div></article>
+          <article class="item"><div class="row"><p class="name">Matcha</p><div class="price">22 Bs</div></div></article>
+        </div>
+      </section>
+
+      <!-- BEBIDAS FRÍAS -->
+      <section class="section" id="bebidasfrias">
+        <h2>🥤 Bebidas frías <span class="badge">refrescante</span></h2>
+        <div class="list">
+          <div class="simple">
+            <div>
+              <div class="left">Awita de Loli</div>
+              <div class="sub">Awita sin azúcar de frutitas maceradas, con hojitas de hierba buena y hielito.</div>
+            </div>
+            <div class="right">10 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Sodita</div>
+              <div class="sub">Gaseosita en vasito.</div>
+            </div>
+            <div class="right">7 y 8 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Strawberry Milk</div>
+              <div class="sub">Lachita con fresas y mermelada, al estilo koreano.</div>
+            </div>
+            <div class="right">20 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Matcha Latte</div>
+              <div class="sub">Combinación de tecito matcha, lachita deslactosada y un toque de canelita.</div>
+            </div>
+            <div class="right">20 Bs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- JUGOS -->
+      <section class="section" id="jugos">
+        <h2>🧃 Jugos naturales <span class="badge">naturalito</span></h2>
+        <div class="list">
+          <div class="simple">
+            <div>
+              <div class="left">Jugo con awita (vaso)</div>
+              <div class="sub">Vasito personal.</div>
+            </div>
+            <div class="right">8 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Jugo con awita (jarra)</div>
+              <div class="sub">Jarrita de 1 litro y medio.</div>
+            </div>
+            <div class="right">15 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Jugo con lachita (vaso)</div>
+              <div class="sub">Vasito personal, con lachita deslactosada.</div>
+            </div>
+            <div class="right">12 Bs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXTRAS -->
+      <section class="section" id="extras">
+        <h2>🎶 Extras <span class="badge">ñam ñam</span></h2>
+        <div class="list">
+          <div class="simple">
+            <div>
+              <div class="left">Fresitas Love</div>
+              <div class="sub">Fresitas picadas con cremita.</div>
+            </div>
+            <div class="right">20 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Panshito – Mori</div>
+              <div class="sub">Sandwichito de jamón y quesito, decorado con salsita de tomate.</div>
+            </div>
+            <div class="right">7 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Frutti – Trocitos</div>
+              <div class="sub">Frutitas de temporada picadas, acompañado de yogurt, cremita y gelatinita.</div>
+            </div>
+            <div class="right">17 Bs</div>
+          </div>
+
+          <div class="simple">
+            <div>
+              <div class="left">Gelatinita</div>
+            </div>
+            <div class="right">3 Bs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INFO -->
+      <section class="section" id="info">
+        <h2>💖 Info del local <span class="badge">útil</span></h2>
+        <p class="desc" style="margin:0">
+          📞 <strong>Pedidos y reservas:</strong> 65304324<br/>
+          📍 <strong>Ubicación:</strong> (pon aquí la dirección exacta)<br/>
+          🕒 <strong>Horarios:</strong> (pon aquí los horarios)
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="https://wa.me/59165304324" target="_blank" rel="noopener">💬 Hablar por WhatsApp</a>
+          <a class="btn" href="https://www.google.com/maps" target="_blank" rel="noopener">🗺️ Cómo llegar</a>
+          <a class="btn" href="#menu">🍭 Volver al menú</a>
+        </div>
+      </section>
+
+      <footer>
+        Hecho con cariño para Lolimori ☕💗 • Menú sujeto a cambios
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
